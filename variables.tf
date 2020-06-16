@@ -1,5 +1,11 @@
 # Input variable definitions
 
+variable "region" {
+  description = "Region"
+  type        = string
+  default     = "ca-central-1"
+}
+
 variable "vpc_name" {
   description = "Name of VPC"
   type        = string

@@ -1,9 +1,9 @@
 # Terraform configuration
 
 provider "aws" {
-  region = "ca-central-1"
+  region = var.region
 }
-/*
+
 data "aws_security_group" "default" {
   name   = "default"
   vpc_id = module.vpc.vpc_id
@@ -67,8 +67,8 @@ data "aws_ami" "amazon_linux" {
     ]
   }
 }
-*/
-/*
+
+
 module "ec2_instances" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "2.15.0"
@@ -87,7 +87,7 @@ module "ec2_instances" {
   tags = var.resource_tags
 
 }
-*/
+
 
 module "website_s3_bucket" {
   source  = "terraform.multicloud.telefonica.com/Telefonica/website_s3_bucket/modules"
