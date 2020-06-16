@@ -68,13 +68,12 @@ data "aws_ami" "amazon_linux" {
   }
 }
 
-
 module "ec2_instances" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "2.15.0"
 
   name           = "tel-module-ec2-cluster"
-  instance_count = 0
+  instance_count = 1
 
   ami           = data.aws_ami.amazon_linux.id
   instance_type          = "t2.micro"
@@ -85,7 +84,6 @@ module "ec2_instances" {
   user_data_base64 = base64encode(local.user_data)
 
   tags = var.resource_tags
-
 }
 
 
